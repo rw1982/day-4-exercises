@@ -1,26 +1,44 @@
 <?php
+ 
 $city = $_GET['city'];
-?>
-<h1>Welcome to Population Data Online</h1>
-<?
-$cities = array(
-  'Philadelphia' => 1548000,
-  'New York' => 8337000,
-  'Los Angeles' => 3858000,
-  'Seattle' => 634535,
-  'Boston' => 636479,
-);
-if ($city && isset($cities[$city])) {
-  print '<p>The population of <strong>' . $city . '</strong> is <strong>' . $cities[$city] . '</strong></p>';
-}
  
 ?>
-<h2>Our Cities</h2>
-<ul>
+ 
+<h2> Welcome to population data online. </h2>
+ 
+<p>
+    <ul>
+        <li>Click <a href="/population.php?city=New York">here</a> to see the population
+        of New York.</li>
+        <li>Click <a href="/population.php?city=Los Angeles">here</a> to see the
+        population of Los Angeles.</li>
+        <li>Click <a href="/population.php?city=Chicago">here</a> to see the
+        population of Chicago.</li>
+        <li>Click <a href="/population.php?city=Houston">here</a> to see the
+        population of Houston.</li>
+        <li>Click <a href="/population.php?city=Philadelphia">here</a> to see
+        the population of Philadelphia.</li>
+    </ul>
+ 
+</P>
+ 
 <?php
-  foreach ($cities as $name => $value) {
-    print '<li><a href="/jody/population.php?city=' . $name  . '">' . $name
-    . '</a></li>';
-  }
+ 
+$cities = array (
+  'New York' => 8175133,
+  'Los Angeles' => 3792621,
+  'Chicago' => 2695598,
+  'Houston' => 2099451,
+  'Philadelphia' => 1526006,
+);
+ 
+if (!$city) {
+  print 'Please click any of the above cities to view their populations, or
+ add one to your URL.';
+}
+ 
+else {
+  print 'The population of ' . $city . ' is ' .
+  $cities[$city];
+}
 ?>
-</ul>
